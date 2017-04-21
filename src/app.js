@@ -18,6 +18,7 @@ const logger = require('morgan');
  * Router modules
  */
 const indexRouter = require('./routes/index');
+const dirRouter = require('./routes/dir');
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.use(logger('dev'));
  * Use routers
  */
 app.use('/', indexRouter);
+app.use('/dirs', dirRouter);
 
 /**
  * Error handlers
