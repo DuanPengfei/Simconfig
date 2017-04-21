@@ -12,17 +12,6 @@ const readdirP = require('readdir-p');
 
 module.exports = {
     createDir(req, res, next) {
-        let body = null;
-        try {
-            body = typeof req.body !== 'object' ? JSON.parse(req.body) : req.body;
-        } catch (err) {
-            return res.status(400).json({
-                status: 'error',
-                message: 'incorrect JSON format',
-                data: {}
-            });
-        }
-
         const _path = body.path;
         if (!_path) {
             return res.status(400).json({
@@ -58,17 +47,6 @@ module.exports = {
     },
 
     updateDir(req, res, next) {
-        let body = null;
-        try {
-            body = typeof req.body !== 'object' ? JSON.parse(req.body) : req.body;
-        } catch (err) {
-            return res.status(400).json({
-                status: 'error',
-                message: 'incorrect JSON format',
-                data: {}
-            });
-        }
-
         const name = body.name;
         if (!name) {
             return res.status(400).json({
